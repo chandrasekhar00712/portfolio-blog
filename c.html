@@ -1,0 +1,493 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>P Chandrasekhar | Portfolio</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: #050816;
+      color: white;
+      overflow-x: hidden;
+    }
+
+    body::-webkit-scrollbar {
+      width: 8px;
+    }
+
+    body::-webkit-scrollbar-thumb {
+      background: cyan;
+      border-radius: 10px;
+    }
+
+    header {
+      width: 100%;
+      position: fixed;
+      top: 0;
+      background: rgba(0,0,0,0.6);
+      backdrop-filter: blur(10px);
+      z-index: 1000;
+      padding: 20px 10%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      font-size: 28px;
+      font-weight: bold;
+      color: cyan;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      margin-left: 25px;
+      transition: 0.3s;
+    }
+
+    nav a:hover {
+      color: cyan;
+    }
+
+    section {
+      padding: 100px 10%;
+    }
+
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      position: relative;
+    }
+
+    .glow {
+      position: absolute;
+      width: 300px;
+      height: 300px;
+      background: cyan;
+      filter: blur(140px);
+      opacity: 0.2;
+      top: 20%;
+      animation: pulse 4s infinite;
+    }
+
+    @keyframes pulse {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.2); }
+      100% { transform: scale(1); }
+    }
+
+    .hero h1 {
+      font-size: 70px;
+      margin-bottom: 20px;
+    }
+
+    .hero span {
+      color: cyan;
+    }
+
+    .typing {
+      font-size: 28px;
+      color: #ccc;
+      margin-bottom: 25px;
+    }
+
+    .hero p {
+      max-width: 800px;
+      line-height: 1.8;
+      color: #bbb;
+      font-size: 18px;
+    }
+
+    .btns {
+      margin-top: 35px;
+    }
+
+    .btn {
+      padding: 14px 30px;
+      margin: 10px;
+      border-radius: 40px;
+      text-decoration: none;
+      font-weight: 600;
+      transition: 0.3s;
+      display: inline-block;
+    }
+
+    .primary {
+      background: cyan;
+      color: black;
+      box-shadow: 0 0 20px cyan;
+    }
+
+    .primary:hover {
+      transform: translateY(-5px);
+    }
+
+    .secondary {
+      border: 2px solid cyan;
+      color: cyan;
+    }
+
+    .secondary:hover {
+      background: cyan;
+      color: black;
+    }
+
+    .title {
+      text-align: center;
+      font-size: 45px;
+      margin-bottom: 60px;
+      color: cyan;
+    }
+
+    .about-box,
+    .education-box,
+    .contact-box {
+      background: #0f172a;
+      padding: 40px;
+      border-radius: 25px;
+      border: 1px solid #1e293b;
+      line-height: 1.9;
+      color: #ccc;
+    }
+
+    .skills-grid,
+    .projects-grid {
+      display: grid;
+      gap: 25px;
+    }
+
+    .skills-grid {
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    }
+
+    .skill-card,
+    .project-card {
+      background: #0f172a;
+      border: 1px solid #1e293b;
+      border-radius: 20px;
+      padding: 25px;
+      transition: 0.3s;
+    }
+
+    .skill-card:hover,
+    .project-card:hover {
+      transform: translateY(-8px);
+      border-color: cyan;
+      box-shadow: 0 0 20px rgba(0,255,255,0.3);
+    }
+
+    .skill-card {
+      text-align: center;
+      font-weight: 600;
+    }
+
+    .projects-grid {
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    }
+
+    .project-card h3 {
+      margin-bottom: 15px;
+      color: white;
+    }
+
+    .project-card p {
+      color: #bbb;
+      line-height: 1.7;
+    }
+
+    .tags {
+      margin-top: 20px;
+    }
+
+    .tags span {
+      display: inline-block;
+      padding: 8px 14px;
+      margin: 5px;
+      background: rgba(0,255,255,0.1);
+      border: 1px solid rgba(0,255,255,0.3);
+      border-radius: 30px;
+      color: cyan;
+      font-size: 14px;
+    }
+
+    .contact-box {
+      text-align: center;
+    }
+
+    .contact-box p {
+      margin: 18px 0;
+      font-size: 18px;
+    }
+
+    .contact-box a {
+      color: cyan;
+      text-decoration: none;
+    }
+
+    footer {
+      text-align: center;
+      padding: 25px;
+      border-top: 1px solid #1e293b;
+      color: #888;
+    }
+
+    @media(max-width: 768px) {
+      header {
+        flex-direction: column;
+        gap: 15px;
+      }
+
+      .hero h1 {
+        font-size: 45px;
+      }
+
+      .typing {
+        font-size: 20px;
+      }
+
+      nav a {
+        margin: 0 10px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="logo">Blog</div>
+
+    <nav>
+      <a href="#home">Home</a>
+      <a href="#about">About</a>
+      <a href="#skills">Skills</a>
+      <a href="#projects">Projects</a>
+      <a href="#education">Education</a>
+      <a href="#resume">Resume</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <section class="hero" id="home">
+    <div class="glow"></div>
+
+    <h1>P <span>Chandrasekhar</span></h1>
+
+    <div class="typing" id="typing"></div>
+
+    <p>
+      Passionate Artificial Intelligence & Data Science student focused on Machine Learning,
+      Deep Learning, Data Analytics, and building impactful AI-powered applications.
+    </p>
+
+    <div class="btns">
+      <a href="resumem.pdf" download class="btn primary">Download Resume</a>
+      <a href="https://github.com/chandrasekhar00712" target="_blank" class="btn primary">GitHub</a>
+
+      <a href="https://www.linkedin.com/in/chandra-sekhar-7433b4298" target="_blank" class="btn secondary">LinkedIn</a>
+    </div>
+  </section>
+
+  <section id="about">
+    <h2 class="title">About Me</h2>
+
+    <div class="about-box">
+      <p>
+        I am currently pursuing B.Tech in Artificial Intelligence & Data Science at
+        Annamacharya Institute of Technology and Sciences.
+      </p>
+
+      <br>
+
+      <p>
+        I enjoy solving real-world problems using AI, Machine Learning, Data Analysis,
+        Deep Learning, and Web Development technologies.
+      </p>
+
+      <br>
+
+      <p>
+        My interests include Computer Vision, NLP, Data Science, and developing modern applications.
+      </p>
+    </div>
+  </section>
+
+  <section id="skills">
+    <h2 class="title">Skills</h2>
+
+    <div class="skills-grid">
+      <div class="skill-card">Python</div>
+      <div class="skill-card">Machine Learning</div>
+      <div class="skill-card">Deep Learning</div>
+      <div class="skill-card">Data Analysis</div>
+      <div class="skill-card">TensorFlow</div>
+      <div class="skill-card">OpenCV</div>
+      <div class="skill-card">NumPy</div>
+      <div class="skill-card">Pandas</div>
+      <div class="skill-card">Scikit-learn</div>
+      <div class="skill-card">HTML</div>
+      <div class="skill-card">CSS</div>
+      <div class="skill-card">JavaScript</div>
+      <div class="skill-card">Node.js</div>
+      <div class="skill-card">Git & GitHub</div>
+    </div>
+  </section>
+
+  <section id="projects">
+    <h2 class="title">Projects</h2>
+
+    <div class="projects-grid">
+
+      <div class="project-card">
+        <h3>Deepfake Face Detector</h3>
+
+        <p>
+          AI-powered deepfake detection system using deep learning and computer vision.
+        </p>
+
+        <div class="tags">
+          <span>Python</span>
+          <span>TensorFlow</span>
+          <span>CNN</span>
+          <span>OpenCV</span>
+        </div>
+      </div>
+
+      <div class="project-card">
+        <h3>Face Mask Detector</h3>
+
+        <p>
+          Real-time face mask detection application using OpenCV and deep learning.
+        </p>
+
+        <div class="tags">
+          <span>Python</span>
+          <span>OpenCV</span>
+          <span>Deep Learning</span>
+        </div>
+      </div>
+
+      <div class="project-card">
+        <h3>Portfolio Website</h3>
+
+        <p>
+          Responsive modern portfolio website showcasing AI and data science projects.
+        </p>
+
+        <div class="tags">
+          <span>HTML</span>
+          <span>CSS</span>
+          <span>JavaScript</span>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <section id="education">
+    <h2 class="title">Education</h2>
+
+    <div class="education-box">
+      <h3>B.Tech - Artificial Intelligence & Data Science</h3>
+
+      <p>Annamacharya Institute of Technology and Sciences</p>
+
+      <p>2024 - Present</p>
+    </div>
+  </section>
+
+  <section id="resume">
+    <h2 class="title">Resume</h2>
+
+    <div class="about-box" style="text-align:center;">
+      <p>
+        Download my resume to know more about my education, technical skills,
+        projects, and experience.
+      </p>
+
+      <br>
+
+      <a href="resume.pdf" download class="btn primary">
+        Download Resume
+      </a>
+    </div>
+  </section>
+
+  <section id="contact">
+    <h2 class="title">Contact</h2>
+
+    <div class="contact-box">
+      <p>📧 chandrasekharpulugundal@gmail.com</p>
+
+      <p>📱 +91 9182943192</p>
+
+      <p>
+        🔗 <a href="https://github.com/chandrasekhar00712" target="_blank">
+          github.com/chandrasekhar00712
+        </a>
+      </p>
+
+      <p>
+        💼 <a href="https://www.linkedin.com/in/chandra-sekhar-7433b4298" target="_blank">
+          linkedin.com/in/chandra-sekhar-7433b4298
+        </a>
+      </p>
+    </div>
+  </section>
+
+  <footer>
+    © 2026 P Chandrasekhar | AI & Data Science Student
+  </footer>
+
+  <script>
+    const text = [
+      'AI & Data Science Student',
+      'Python Developer',
+      'Machine Learning Enthusiast',
+      'Data Analyst'
+    ];
+
+    let count = 0;
+    let index = 0;
+    let currentText = '';
+    let letter = '';
+
+    (function type() {
+      if (count === text.length) {
+        count = 0;
+      }
+
+      currentText = text[count];
+      letter = currentText.slice(0, ++index);
+
+      document.getElementById('typing').textContent = letter;
+
+      if (letter.length === currentText.length) {
+        count++;
+        index = 0;
+        setTimeout(type, 1200);
+      } else {
+        setTimeout(type, 100);
+      }
+    })();
+  </script>
+
+</body>
+</html>
